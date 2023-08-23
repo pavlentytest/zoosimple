@@ -1,3 +1,4 @@
+import java.util.*
 const val camel = """Switching on the camera in the camel habitat...
  ___.-''''-.
 /___  @    |
@@ -113,17 +114,16 @@ const val rabbit = """Switching on the camera in the rabbit habitat...
 (" ~----( ~   Y.  )
 It looks like we will soon have more rabbits!"""
 
+val animals = arrayOf(camel, lion, deer, goose, bat, rabbit)
+
 fun main() {
     println("Please enter the number of the habitat you would like to view:")
-    val x = readln().toInt()
-    when(x) {
-        0 -> println(camel)
-        1 -> println(lion)
-        2 -> println(deer)
-        3 -> println(goose)
-        4 -> println(bat)
-        5 -> println(rabbit)
+    val scanner = Scanner(System.`in`)
+    while (scanner.hasNextLine()) {
+        val comm = scanner.nextLine()
+        if(comm == "exit")
+            println("See you later!")
+        else
+            println(animals[comm.toInt()])
     }
-    println("---")
-    println("You've reached the end of the program. To check another habitat, please restart the watcher.")
 }
